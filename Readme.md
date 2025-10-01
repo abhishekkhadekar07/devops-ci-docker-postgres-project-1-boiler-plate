@@ -36,3 +36,8 @@ jobs:
       - name: Lint frontend
         working-directory: frontend
         run: npm run lint
+
+
+        In order to get you api working u have to create table inside postgres
+        probable command 
+        docker run exec sh psql -U abhishek -D testdb 
