@@ -1,22 +1,27 @@
-name: build and lint 
+name: build and lint
 
 on:
   push:
     branches:
-      - [main,master,dev]
+      - main
+      - master
+      - dev
   pull_request:
     branches:
-      - [main,master,dev]
+      - main
+      - master
+      - dev
+
 jobs:
-  build and lint:
+  build-and-lint:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo
-        uses: actions/checkout@v2
-      - name: set up node
-        uses: actions/setup-node@v3
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
-          node-version: 22     
+          node-version: 22
       - name: Install backend dependencies
         working-directory: backend
         run: npm ci
@@ -29,4 +34,3 @@ jobs:
       - name: Lint frontend
         working-directory: frontend
         run: npm run lint
-     
