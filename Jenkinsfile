@@ -11,10 +11,15 @@ pipeline {
                 echo "Code pushed! Running pipeline..."
             }
         }
-             stage('test') {
+       stage('test') {
             steps {
                 echo "test is running"
             }
         }
+        stage('docker build') {
+            steps {
+                echo "docker build"
+            }
+        }  
     }
 }
